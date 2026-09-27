@@ -21,14 +21,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-DB_PATH = "../data/honeychain.db"
+from pathlib import Path
 
-PRODUCTION_MODEL_PATH = (
-    "../models/production_model.pkl"
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DB_PATH = str(BASE_DIR / "data" / "honeychain.db")
+
+PRODUCTION_MODEL_PATH = str(
+    BASE_DIR / "models" / "production_model.pkl"
 )
 
-HEALTH_MODEL_PATH = (
-    "../models/hive_health_model.pkl"
+HEALTH_MODEL_PATH = str(
+    BASE_DIR / "models" / "hive_health_model.pkl"
 )
 
 
