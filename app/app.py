@@ -1910,7 +1910,7 @@ elif page == "📱 QR Verification":
 
             if blockchain_valid:
 
-                st.success
+                st.success(
                     "✓ Blockchain record is valid and "
                     "the recorded chain is intact."
                 )
