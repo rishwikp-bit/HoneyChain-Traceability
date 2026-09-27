@@ -191,7 +191,35 @@ def get_beekeepers():
     return data
 
 
+def ensure_five_hives():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    new_hives = [
+        (1, "HIVE-002", "Telangana"),
+        (1, "HIVE-003", "Telangana"),
+        (2, "HIVE-004", "Telangana"),
+        (2, "HIVE-005", "Telangana"),
+    ]
+
+    for beekeeper_id, hive_name, location in new_hives:
+        cursor.execute(
+            """
+            INSERT INTO hives (beekeeper_id, hive_name, location)
+            SELECT ?, ?, ?
+            WHERE NOT EXISTS (
+                SELECT 1 FROM hives WHERE hive_name = ?
+            )
+            """,
+            (beekeeper_id, hive_name, location, hive_name)
+        )
+
+    conn.commit()
+    conn.close()
+
+
 def get_hives():
+    
     conn = get_connection()
 
     data = pd.read_sql_query(
@@ -629,6 +657,8 @@ if page == "🏠 Dashboard":
 
     # Database data
     try:
+        ensure_five_hives()
+
 
         beekeepers = get_beekeepers()
         hives = get_hives()
