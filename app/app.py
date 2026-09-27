@@ -21,14 +21,14 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-DB_PATH = "/content/HoneyChain/data/honeychain.db"
+DB_PATH = "../data/honeychain.db"
 
 PRODUCTION_MODEL_PATH = (
-    "/content/HoneyChain/models/production_model.pkl"
+    "../models/production_model.pkl"
 )
 
 HEALTH_MODEL_PATH = (
-    "/content/HoneyChain/models/hive_health_model.pkl"
+    "../models/hive_health_model.pkl"
 )
 
 
@@ -1266,7 +1266,7 @@ elif page == "📦 Honey Batches":
                             )
 
                         # Generate QR code
-                        qr_folder = "/content/HoneyChain/qr_codes"
+                        qr_folder = "../qr_codes"
                         os.makedirs(
                             qr_folder,
                             exist_ok=True
@@ -2298,4 +2298,3 @@ st.sidebar.markdown("---")
 st.sidebar.caption(
     "🍯 HoneyChain • Smart Honey Traceability"
 )
-
