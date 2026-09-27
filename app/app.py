@@ -1766,7 +1766,7 @@ elif page == "📱 QR Verification":
 
                 st.subheader("📲 Product QR Code")
 
-                honeychain_url = "https://holding-related-tracy-finals.trycloudflare.com"
+                honeychain_url = "https://honeychain-traceability-btjvhgasmgyjdqbyqhrdpe.streamlit.app"
 
                 qr_data = (
                     f"{honeychain_url}/?batch={batch['batch_id']}"
@@ -1910,7 +1910,7 @@ elif page == "📱 QR Verification":
 
             if blockchain_valid:
 
-                st.success(
+                st.success
                     "✓ Blockchain record is valid and "
                     "the recorded chain is intact."
                 )
